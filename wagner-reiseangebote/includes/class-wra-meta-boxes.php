@@ -61,6 +61,14 @@ final class WRA_Meta_Boxes {
 				<p class="description">Der Link führt vom Reiseangebot direkt zur passenden Buchung. Verfügbarkeit, Kundendaten und Zahlung bleiben bei Busfinder.</p>
 			</section>
 
+			<?php if ( $this->value( $post->ID, '_wra_import_source' ) ) : ?>
+				<section class="wra-editor__section">
+					<h3>Importinformation</h3>
+					<p>Diese Reise wurde aus <?php echo esc_html( ucfirst( $this->value( $post->ID, '_wra_import_source' ) ) ); ?> übernommen und ist seitdem ein eigenständiger WordPress-Datensatz.</p>
+					<p class="description">Referenz: <?php echo esc_html( $this->value( $post->ID, '_wra_import_reference' ) ?: '–' ); ?> · Importiert: <?php echo esc_html( $this->value( $post->ID, '_wra_imported_at' ) ?: '–' ); ?></p>
+				</section>
+			<?php endif; ?>
+
 			<section class="wra-editor__section">
 				<div class="wra-editor__section-heading">
 					<div><h3>Reiseprogramm</h3><p class="description">Ein Abschnitt pro Reisetag oder Programmpunkt.</p></div>
